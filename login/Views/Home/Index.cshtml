@@ -1,0 +1,18 @@
+﻿
+@model login.ModelView.cuentas_viewmodel
+<div>
+    @using (Html.BeginForm("login", "home"))
+    {<p>@ViewBag.Error </p>
+        <p>
+            @Html.LabelFor(model => model.cuentas.username)
+
+            @Html.TextBoxFor(model => model.cuentas.username)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.cuentas.password)
+
+            @Html.PasswordFor(model => model.cuentas.password)
+        </p>
+        <p> <input type="submit" value="ingresar" /></p>
+    }
+</div>

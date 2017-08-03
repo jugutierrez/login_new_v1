@@ -1,0 +1,8 @@
+﻿
+@using login.seguridad
+<div>
+    inicio
+    @SessionPersister.username
+
+    <a href="@Url.Action("Logout" , "home")"> desconectar</a>
+</div>
