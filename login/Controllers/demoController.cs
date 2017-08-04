@@ -9,11 +9,13 @@ namespace login.Controllers
     public class demoController : Controller
     {
         // GET: demo
-        [Authorize]
+       [CustomAuthorize]
         public ActionResult Index()
         {
             return View();
         }
+   
+
 
         [CustomAuthorize(Roles ="0")]
         public ActionResult work1()

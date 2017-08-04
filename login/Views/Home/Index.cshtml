@@ -4,14 +4,14 @@
     @using (Html.BeginForm("login", "home"))
     {<p>@ViewBag.Error </p>
         <p>
-            @Html.LabelFor(model => model.cuentas.username)
+            @Html.LabelFor(model => model.cuentas.correo_electronico_persona)
 
-            @Html.TextBoxFor(model => model.cuentas.username)
+            @Html.TextBoxFor(model => model.cuentas.correo_electronico_persona)
         </p>
         <p>
-            @Html.LabelFor(model => model.cuentas.password)
+            @Html.LabelFor(model => model.cuentas.clave_persona  )
 
-            @Html.PasswordFor(model => model.cuentas.password)
+            @Html.PasswordFor(model => model.cuentas.clave_persona)
         </p>
         <p> <input type="submit" value="ingresar" /></p>
     }

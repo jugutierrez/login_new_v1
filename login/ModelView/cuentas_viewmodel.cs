@@ -9,6 +9,8 @@ namespace login.ModelView
 {
     public class cuentas_viewmodel
     {
-        public cuentas cuentas { get; set; }
+      //  public cuentas cuentas { get; set; }
+
+        public personas cuentas { get; set; }
     }
 }

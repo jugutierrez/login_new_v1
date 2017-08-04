@@ -6,14 +6,16 @@ using System.Web;
 using login.Models;
 namespace login.seguridad
 {
+    
     public class customPrincipal : IPrincipal
     {
-        private cuentas cuentas;
+        PersonaDBContext db = new PersonaDBContext();
+        private personas cuentas;
   
-        public customPrincipal(cuentas cuentas)
+        public customPrincipal(personas cuentas)
         {
             this.cuentas = cuentas;
-            this.Identity = new GenericIdentity(cuentas.username);
+            this.Identity = new GenericIdentity(cuentas.nombre_persona);
         }
         public IIdentity Identity
         {
@@ -21,10 +23,13 @@ namespace login.seguridad
          
         }
 
-        public bool IsInRole(string role)
+    
+
+         public bool IsInRole(string role)
         {
-            var roles = role.Split(new char[] { ',' });
-            return roles.Any(r => this.cuentas.roles.Contains(r));
+          var roles = role.Split(new char[] { ',' });
+            List<personas> rol = db.personas.ToList();
+            return true;
         }
     }
 }

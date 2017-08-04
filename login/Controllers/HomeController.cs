@@ -15,17 +15,22 @@ namespace login.Controllers
         {
             return View();
         }
+        [CustomAuthorize]
+        public ActionResult About()
+        {
+            SessionPersister.username = string.Empty;
+            return View();
+        }
 
-        
         public ActionResult Login(cuentas_viewmodel cv)
         {
             modelo_cuentas cv1 = new modelo_cuentas();
-            if (string.IsNullOrEmpty(cv.cuentas.username) || string.IsNullOrEmpty(cv.cuentas.password) || cv1.login(cv.cuentas.username, cv.cuentas.password) == null)
+            if (string.IsNullOrEmpty(cv.cuentas.correo_electronico_persona) || string.IsNullOrEmpty(cv.cuentas.clave_persona) || cv1.login(cv.cuentas.correo_electronico_persona, cv.cuentas.clave_persona) == null)
             {
                 ViewBag.Error = "cuenta invalida";
                 return View("index");
             }
-            SessionPersister.username = cv.cuentas.username;
+            SessionPersister.username = cv.cuentas.correo_electronico_persona;
             return RedirectToAction("index","demo");
         }
 
